@@ -13,10 +13,9 @@ google_analytics:
     <div>
       <ul>
         <li>紙のQSLカードを電子的なeQSLカードで置換する</li>
-        <li>eQSLカードをブラウザ上で編集する</li>
         <li>交信ログを永続化する</li>
-        <li>eQSLサービスを利用できるweb UIを提供する</li>
-        <li>永続化したデータを外部から利用できるAPIを提供する</li>
+        <li>eQSLサービスをブラウザから利用できるweb UIを提供する</li>
+        <li>永続化したデータを外部サービスからも利用できるAPIを提供する</li>
       </ul>
     </div>
   </div>
@@ -24,6 +23,11 @@ google_analytics:
   <div>
     <h2>構成</h2>
     <div>
+      <pre>
+user --- browser --- (web UI) --- API --- backend --- RDB
+                                             |
+                                        block chain?
+      </pre>
     </div>
   </div>
 
