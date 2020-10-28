@@ -1,0 +1,80 @@
+---
+layout: default
+title: JARL 年齢層別正会員構成 (2016-2020)
+description: JARL 年齢層別正会員構成 (2016-2020)
+show_downloads: false
+google_analytics: 
+---
+
+<body>
+<div>
+    <div>
+      <canvas id="chart"></canvas>
+    </div>
+
+    <div>
+        <h4>データについて</h4>
+        <ul>
+            <li>2016年から2020年のデータしか見つかりませんでした。2016年以前のデータをお持ちの方がいらっしゃったらご提供下さい。</li>
+            <li>オリジナルのデータはhamlife.jpで公開されています。https://www.hamlife.jp/2020/05/06/jarl-kaiin-nenrei-202003/</li>
+        </ul>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
+<script>
+    const datasets = [
+        {
+            label: '2016',
+            data: [223, 191, 123, 156, 370, 837, 1864, 4160, 8054, 9005, 10378, 10163, 5687, 3152, 1304, 400, 468],
+            //backgroundColor: 'black'
+        },
+        {
+            label: '2017',
+            data: [295, 245, 150, 145, 339, 689, 1609, 3555, 7583, 8812, 10126, 11222, 5691, 3344, 1546, 478, 436]
+        },
+        {
+            label: '2018',
+            data: [321, 309, 193, 152, 289, 633, 1402, 3211, 6806, 8849, 9903, 11735, 6002, 3746, 1771, 584, 415]
+        },
+        {
+            label: '2019',
+            data: [278, 309, 201, 166, 245, 579, 1271, 2803, 6181, 8812, 9737, 11266, 7057, 3994, 2009, 725, 399]
+        },
+        {
+            label: '2020',
+            data: [267, 308, 192, 183, 244, 534, 1145, 2447, 5435, 8788, 9664, 10786, 8154, 4376, 2153, 846, 379]
+        },
+    ]
+
+    const context = document.getElementById("chart")
+    const chart = new Chart(context, {
+        type: 'bar',
+        data: {
+            labels: ['-15', '16-20', '21-25', '26-30', '31-35', '36-40', '41-45', '46-50', '51-55', '56-60', '61-65', '66-70', '71-75', '76-80', '81-85', '86-', '不明'],
+            datasets: [
+                datasets[0]
+            ]
+        },
+        options: {
+            //legend: {
+            //    display: false
+            //}
+        }
+    })
+
+    let i = 0;
+    const timer = setInterval(() => {
+        i++
+        if (i >= datasets.length) {
+            clearInterval(timer)
+            return
+        }
+        chart.data.datasets[0].label = datasets[i].label
+        chart.data.datasets[0].data = datasets[i].data
+        chart.update()
+    }, 2000)
+
+</script>
+</body>
+</html>
