@@ -1,7 +1,7 @@
 ---
 layout: default
-title: JARL 年齢層別正会員構成 (2016-2020)
-description: JARL 年齢層別正会員構成 (2016-2020)
+title: JARL 年齢層別正会員構成 (2005, 2016-2020)
+description: JARL 年齢層別正会員構成 (2005, 2016-2020)
 show_downloads: false
 google_analytics: 
 ---
@@ -9,15 +9,16 @@ google_analytics:
 <body>
 <div>
     <div>
-      <h1>JARL 年齢層別正会員構成 (2016-2020)</h1>
+      <h1>JARL 年齢層別正会員構成 (2005, 2016-2020)</h1>
       <canvas id="chart"></canvas>
     </div>
 
     <div>
         <ul>
-            <li>グラフは2秒ごとに更新されます。再度再生する時はブラウザをリロードして下さい。</li>
-            <li>2016年以降のデータしか見つかりませんでした。2016年以前のデータをお持ちの方がいらっしゃったらご提供下さい。</li>
-            <li>オリジナルのデータはhamlife.jpで公開されています。https://www.hamlife.jp/2020/05/06/jarl-kaiin-nenrei-202003/</li>
+            <li>グラフは1秒ごとに更新されます。再度再生する時はブラウザをリロードして下さい。</li>
+            <li>2005年と2016年以降のデータしか見つかりませんでした。2016年以前のデータをお持ちの方がいらっしゃったらご提供下さい。</li>
+            <li>2005年を除くオリジナルのデータはhamlife.jpで公開されています。https://www.hamlife.jp/2020/05/06/jarl-kaiin-nenrei-202003/</li>
+            <!-- http://www.out-door.jp/sokai-2005sendai.html -->
         </ul>
     </div>
 </div>
@@ -26,9 +27,13 @@ google_analytics:
 <script>
     const datasets = [
         {
+            label: '2005',
+            data: [72, 165, 600, 1300, 2324, 5544, 9654, 11297, 13232, 11772, 8273, 5381, 2720, 1125, 297, 0, 0],
+            //backgroundColor: 'black'
+        },
+        {
             label: '2016',
             data: [223, 191, 123, 156, 370, 837, 1864, 4160, 8054, 9005, 10378, 10163, 5687, 3152, 1304, 400, 468],
-            //backgroundColor: 'black'
         },
         {
             label: '2017',
